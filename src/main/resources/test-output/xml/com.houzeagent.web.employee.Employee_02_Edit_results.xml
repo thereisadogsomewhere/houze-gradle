@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Run on Chrome"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="9.859">
+  <properties />
+  
+  
+            <testcase name="TC_01_Blank_Data" time="1.736" classname="com.houzeagent.web.employee.Employee_02_Edit" />
+                <testcase name="TC_04_Valid_Data" time="6.139" classname="com.houzeagent.web.employee.Employee_02_Edit" />
+                <testcase name="TC_02_Existed_Employee_Code" time="1.022" classname="com.houzeagent.web.employee.Employee_02_Edit" />
+                <testcase name="TC_03_Existed_Phone" time="0.962" classname="com.houzeagent.web.employee.Employee_02_Edit" />
+      
+</testsuite>

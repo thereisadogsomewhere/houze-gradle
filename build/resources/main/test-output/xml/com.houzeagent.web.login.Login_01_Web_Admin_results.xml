@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Run on Chrome"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="5.871">
+  <properties />
+  
+  
+            <testcase name="Login_02_Wrong_ID" time="2.122" classname="com.houzeagent.web.login.Login_01_Web_Admin" />
+                <testcase name="Login_01_Blank_Data" time="0.483" classname="com.houzeagent.web.login.Login_01_Web_Admin" />
+                <testcase name="Login_04_Valid_Data" time="1.618" classname="com.houzeagent.web.login.Login_01_Web_Admin" />
+                <testcase name="Login_03_Wrong_Password" time="1.648" classname="com.houzeagent.web.login.Login_01_Web_Admin" />
+      
+</testsuite>

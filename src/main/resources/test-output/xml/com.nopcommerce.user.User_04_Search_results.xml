@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Run on Chrome"
+           tests="11"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="12.812">
+  <properties />
+  
+  
+            <testcase name="Search_02_Data_Not_Exist" time="1.460" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_11_Advanced_Price_Range_More_Than_Product_Price" time="1.188" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_07_Advanced_Incorrect_Manufacturer" time="1.019" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_10_Advanced_Price_Range_Less_Than_Product_Price" time="1.169" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_01_Empty_Data" time="1.338" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_06_Advanced_Sub_Categories" time="1.729" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_03_Product_Name" time="0.814" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_05_Advanced_Parent_Categories" time="0.931" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_08_Advanced_Correct_Manufacturer" time="1.091" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_04_Exact_Product_Name" time="0.783" classname="com.nopcommerce.user.User_04_Search" />
+                <testcase name="Search_09_Advanced_Price_Range" time="1.290" classname="com.nopcommerce.user.User_04_Search" />
+      
+</testsuite>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Run on Chrome"
+           tests="6"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="4.744">
+  <properties />
+  
+  
+            <testcase name="Register_02_Invalid_Email" time="0.225" classname="com.nopcommerce.user.User_01_Register" />
+                <testcase name="Register_04_Password_Less_Than_6" time="0.251" classname="com.nopcommerce.user.User_01_Register" />
+                <testcase name="Register_06_Valid_Data" time="2.615" classname="com.nopcommerce.user.User_01_Register" />
+                <testcase name="Register_05_Confirm_Password_Does_Not_Match" time="0.291" classname="com.nopcommerce.user.User_01_Register" />
+                <testcase name="Register_01_Empty_Data" time="0.311" classname="com.nopcommerce.user.User_01_Register" />
+                <testcase name="Register_03_Exist_Email" time="1.051" classname="com.nopcommerce.user.User_01_Register" />
+      
+</testsuite>
