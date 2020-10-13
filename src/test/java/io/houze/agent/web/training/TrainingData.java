@@ -21,8 +21,11 @@ public class TrainingData {
         public static final String TEXTBOX_END_DATE_FIELD = "end_date";
         public static final String DROPDOWN_TESTS_FIELD = "tests";
         public static final String START_DATE_VALUE = "28/09/2020";
+        public static final String START_DATE_EDITTED_VALUE = "13/01/2020";
         public static final String END_DATE_VALUE = "31/10/2020";
+        public static final String END_DATE_EDITTED_VALUE = "24/12/2020";
         public static final String TEST_NAME = "Tìm kiếm khách hàng tiềm năng";
+        public static final String TEST_NAME_EDITTED = "Bài test";
     }
 
     public static class List {

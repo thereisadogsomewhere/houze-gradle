@@ -1,6 +1,6 @@
 package commons;
 
-import houzeagent.pageUIs.EmployeePageUI;
+import houzeagent.pageUIs.TrainingPageUI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -195,6 +195,12 @@ public abstract class AbstractPage {
         }
     }
 
+    protected void deselectAllItemsInCustomDropdown(WebDriver driver, String parentLocator, String deselectLocator) {
+        find(driver, parentLocator).click();
+        waitElementVisible(driver, deselectLocator);
+        find(driver, deselectLocator).click();
+    }
+
     protected String getElementAttribute(WebDriver driver, String xpathValue, String attributeName) {
         return find(driver, xpathValue).getAttribute(attributeName);
     }
@@ -355,6 +361,16 @@ public abstract class AbstractPage {
                 element, "style", originalStyle);
     }
 
+    public void clearElement(WebDriver driver, String xpathValue) {
+        highlightElement(driver, xpathValue);
+        find(driver,xpathValue).clear();
+    }
+
+    public void clearElement(WebDriver driver, String xpathValue, String... values) {
+        highlightElement(driver, castToObject(xpathValue, values));
+        find(driver,castToObject(xpathValue, values)).clear();
+    }
+
     protected void clickToElementByJS(WebDriver driver, String xpathValue) {
         js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", find(driver, xpathValue));
@@ -474,16 +490,6 @@ public abstract class AbstractPage {
         sendkeyToElement(driver, AbtractPageUI.UPLOAD_FILE_TYPE, fullFileName.toString());
     }
 
-    public void clickToActionDropdownButton(WebDriver driver, String rowNumber) {
-        waitElementClickable(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_BUTTON, rowNumber);
-        clickToElement(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_BUTTON, rowNumber);
-    }
-
-    public void clickToDynamicActionDropdownItem(WebDriver driver, String action) {
-        waitElementClickable(driver, EmployeePageUI.DYNAMIC_ACTION_DROPDOWN_ITEM, action);
-        clickToElement(driver, EmployeePageUI.DYNAMIC_ACTION_DROPDOWN_ITEM, action);
-    }
-
 //    protected Boolean areFilesUploadedDisplayed(WebDriver driver, String... fileNames) {
 //        boolean status = false;
 //        int number = fileNames.length;
@@ -532,4 +538,24 @@ public abstract class AbstractPage {
     private JavascriptExecutor js;
     private List<WebElement> elements;
     private Actions actions;
+
+    public void clickToActionDropdownButton(WebDriver driver, String rowNumber) {
+        waitElementClickable(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_BUTTON, rowNumber);
+        clickToElement(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_BUTTON, rowNumber);
+    }
+
+    public void clickToDynamicActionDropdownItem(WebDriver driver, String action) {
+        waitElementClickable(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_ITEM, action);
+        clickToElement(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_ITEM, action);
+    }
+
+    public void clearDynamicTextbox(WebDriver driver, String... textbox) {
+        waitElementVisible(driver, AbtractPageUI.DYNAMIC_TEXTBOX_IN_FORM, textbox);
+        clearElement(driver, AbtractPageUI.DYNAMIC_TEXTBOX_IN_FORM, textbox);
+    }
+
+    public void inputToDynamicTextbox(WebDriver driver, String value, String fieldName) {
+        waitElementVisible(driver, AbtractPageUI.DYNAMIC_TEXTBOX_IN_FORM, fieldName);
+        sendkeyToElement(driver, AbtractPageUI.DYNAMIC_TEXTBOX_IN_FORM, value, fieldName);
+    }
 }

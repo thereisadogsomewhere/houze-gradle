@@ -1,15 +1,15 @@
 
-[
-java:S3252"BUse static access with "commons.AbtractPageUI" for "DYNAMIC_MENU".(ÀŒ½óşÿÿÿÿ
-T
-java:S1128"9Remove this unused import 'commons.PageGeneratorManager'.(şÛÊÙ8æ‰İœÄ.
-a
-java:S3252"MUse static access with "commons.AbtractPageUI" for "DYNAMIC_LANGUAGE_BUTTON".(ØßÌ
-o
-java:S3252"VUse static access with "commons.AbtractPageUI" for "NAV_BAR_LANGUAGE_DROPDOWN_BUTTON".(‚Ïöıÿÿÿÿ
-o
-java:S3252"VUse static access with "commons.AbtractPageUI" for "NAV_BAR_LANGUAGE_DROPDOWN_BUTTON".(¸¿€¨ûÿÿÿÿ
-a
-java:S3252"MUse static access with "commons.AbtractPageUI" for "DYNAMIC_LANGUAGE_BUTTON".(ğçì”
 V
-java:S3252"BUse static access with "commons.AbtractPageUI" for "DYNAMIC_MENU".(¡éù®
+java:S1128"9Remove this unused import 'commons.PageGeneratorManager'.(şÛÊÙ8æ‰İœÄ.
+]
+java:S3252"BUse static access with "commons.AbtractPageUI" for "DYNAMIC_MENU".(ÀŒ½óşÿÿÿÿ
+c
+java:S3252"MUse static access with "commons.AbtractPageUI" for "DYNAMIC_LANGUAGE_BUTTON".(ğçì”
+q
+java:S3252"VUse static access with "commons.AbtractPageUI" for "NAV_BAR_LANGUAGE_DROPDOWN_BUTTON".(‚Ïöıÿÿÿÿ
+X
+java:S3252"BUse static access with "commons.AbtractPageUI" for "DYNAMIC_MENU".(¡éù®
+q
+java:S3252"VUse static access with "commons.AbtractPageUI" for "NAV_BAR_LANGUAGE_DROPDOWN_BUTTON".(¸¿€¨ûÿÿÿÿ
+c
+java:S3252"MUse static access with "commons.AbtractPageUI" for "DYNAMIC_LANGUAGE_BUTTON".(ØßÌ

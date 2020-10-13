@@ -37,14 +37,9 @@ public class TrainingPageObject extends AbstractPage {
         clickToElement(driver, TrainingPageUI.CLOSE_FORM_BUTTON);
     }
 
-    public void inputToDynamicTextbox(String value, String fieldName) {
-        waitElementVisible(driver, TrainingPageUI.DYNAMIC_TEXTBOX_IN_FORM, fieldName);
-        sendkeyToElement(driver, TrainingPageUI.DYNAMIC_TEXTBOX_IN_FORM,value, fieldName);
-    }
-
     public void inputToDynamicTextarea(String value, String fieldName) {
         waitElementVisible(driver, TrainingPageUI.DYNAMIC_TEXTAREA, fieldName);
-        sendkeyToElement(driver, TrainingPageUI.DYNAMIC_TEXTAREA,value, fieldName);
+        sendkeyToElement(driver, TrainingPageUI.DYNAMIC_TEXTAREA, value, fieldName);
     }
 
     public void selectInProjectDropdown(String projectName) {
@@ -56,8 +51,15 @@ public class TrainingPageObject extends AbstractPage {
 
     public void selectInTestsDropdown(String testName) {
         waitElementVisible(driver, TrainingPageUI.TESTS_DROPDOWN);
-        selectItemsInCustomDropdown(driver, TrainingPageUI.TESTS_DROPDOWN, TrainingPageUI.TESTS_DROPDOWN_ITEMS,
+        selectItemsInCustomDropdown(driver, TrainingPageUI.TESTS_DROPDOWN,
+                TrainingPageUI.TESTS_DROPDOWN_ITEMS,
                 testName);
+    }
+
+    public void deselectAllInTestsDropdown() {
+        waitElementVisible(driver, TrainingPageUI.TESTS_DROPDOWN);
+        deselectAllItemsInCustomDropdown(driver, TrainingPageUI.TESTS_DROPDOWN,
+                TrainingPageUI.TESTS_DROPDOWN_DESELECT_BUTTON);
     }
 
     public void uploadImage(String... imageName) {

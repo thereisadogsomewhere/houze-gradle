@@ -65,8 +65,8 @@ public class Test_Training_02_Test_Edit extends AbstractTest {
                 "Training - Edit Test - Step 01: Clear all required fields");
         trainingPage.inputToDynamicTextarea(AbstractPageData.BLANK, Form.TEXTAREA_NAME_FIELD);
         trainingPage.inputToDynamicTextarea(AbstractPageData.BLANK, Form.TEXTAREA_DESC_FIELD);
-        trainingPage.inputToDynamicTextbox(AbstractPageData.BLANK, Form.DURATION_FIELD);
-        trainingPage.inputToDynamicTextbox(AbstractPageData.BLANK, Form.SCORE_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, AbstractPageData.BLANK, Form.DURATION_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, AbstractPageData.BLANK, Form.SCORE_FIELD);
 
         ExtentTestManager.getTest().log(LogStatus.INFO,
                 "Training - Edit Test - Step 02: Click save button");
@@ -95,8 +95,8 @@ public class Test_Training_02_Test_Edit extends AbstractTest {
         ExtentTestManager.startTest(method.getName(), "TC_02_Duration_Score_Smaller_Than_0");
 
         ExtentTestManager.getTest().log(LogStatus.INFO, "Training - Step 01: Input to Duration and Score Smaller than 0");
-        trainingPage.inputToDynamicTextbox(Form.INVALID_DURATION_VALUE, Form.DURATION_FIELD);
-        trainingPage.inputToDynamicTextbox(Form.INVALID_SCORE_VALUE, Form.SCORE_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, Form.INVALID_DURATION_VALUE, Form.DURATION_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, Form.INVALID_SCORE_VALUE, Form.SCORE_FIELD);
 
         ExtentTestManager.getTest().log(LogStatus.INFO, "Training - Step 02: Click to Save button");
         trainingPage.clickToSaveButton();
@@ -121,9 +121,9 @@ public class Test_Training_02_Test_Edit extends AbstractTest {
         ExtentTestManager.getTest().log(LogStatus.INFO, "Training - Step 01: Input all data to form");
         trainingPage.inputToDynamicTextarea(testName, Form.TEXTAREA_NAME_FIELD);
         trainingPage.inputToDynamicTextarea(Form.DESC_VALUE, Form.TEXTAREA_DESC_FIELD);
-        trainingPage.inputToDynamicTextbox(docLink, Form.DOC_LINK_FIELD);
-        trainingPage.inputToDynamicTextbox(Form.VALID_DURATION_VALUE, Form.DURATION_FIELD);
-        trainingPage.inputToDynamicTextbox(Form.VALID_SCORE_VALUE, Form.SCORE_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, docLink, Form.DOC_LINK_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, Form.VALID_DURATION_VALUE, Form.DURATION_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, Form.VALID_SCORE_VALUE, Form.SCORE_FIELD);
         trainingPage.uploadImage(Form.IMAGE_NAME);
 
         ExtentTestManager.getTest().log(LogStatus.INFO, "Training - Step 02: Click to Save button");
@@ -153,10 +153,10 @@ public class Test_Training_02_Test_Edit extends AbstractTest {
         ExtentTestManager.getTest().log(LogStatus.INFO, "Training - Step 01: Input all data to form");
         trainingPage.inputToDynamicTextarea(testName, Form.TEXTAREA_NAME_FIELD);
         trainingPage.inputToDynamicTextarea(Form.DESC_VALUE, Form.TEXTAREA_DESC_FIELD);
-        trainingPage.inputToDynamicTextbox(docLink, Form.DOC_LINK_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, docLink, Form.DOC_LINK_FIELD);
         trainingPage.selectInProjectDropdown(Form.PROJECT_NAME);
-        trainingPage.inputToDynamicTextbox(Form.VALID_DURATION_VALUE, Form.DURATION_FIELD);
-        trainingPage.inputToDynamicTextbox(Form.VALID_SCORE_VALUE, Form.SCORE_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, Form.VALID_DURATION_VALUE, Form.DURATION_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, Form.VALID_SCORE_VALUE, Form.SCORE_FIELD);
         trainingPage.uploadImage(Form.IMAGE_NAME);
 
         ExtentTestManager.getTest().log(LogStatus.INFO, "Training - Step 02: Click to Save button");

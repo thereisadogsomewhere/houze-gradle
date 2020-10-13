@@ -83,6 +83,13 @@ task smokeTests(type: Test) {
 task testManagements(type: Test) {
     useTestNG() {
         useDefaultListeners = false
-        suites 'src/test/resources/runTestManagements.xml'
+        suites 'src/test/resources/runTestManagementsSuite.xml'
+    }
+}
+
+task testEmployee(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/runEmployeeSuite.xml'
     }
 }

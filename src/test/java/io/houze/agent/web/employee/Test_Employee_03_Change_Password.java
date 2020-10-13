@@ -1,5 +1,6 @@
 package io.houze.agent.web.employee;
 
+import com.relevantcodes.extentreports.LogStatus;
 import commons.AbstractPageData;
 import commons.AbstractTest;
 import commons.GlobalConstants;
@@ -9,6 +10,9 @@ import org.testng.annotations.*;
 import houzeagent.pageObjects.EmployeePageObject;
 import houzeagent.pageObjects.HomePageObject;
 import houzeagent.pageObjects.LoginPageObject;
+import reportConfig.ExtentTestManager;
+
+import java.lang.reflect.Method;
 
 import static io.houze.agent.web.employee.EmployeeData.*;
 
@@ -19,10 +23,6 @@ public class Test_Employee_03_Change_Password extends AbstractTest {
     EmployeePageObject employeePage;
 
     String homePageTitle;
-
-    String rdUsername = Form.NewEmployee.USERNAME + randomNumber();
-    String rdEmployeeCode = Form.NewEmployee.EMPLOYEE_CODE + randomNumber();
-    String rdPhone = Form.NewEmployee.PHONE + randomNumber();
 
     @Parameters({"browser", "url"})
     @BeforeClass(groups = "smoke")
@@ -38,24 +38,11 @@ public class Test_Employee_03_Change_Password extends AbstractTest {
         homePage.clickToLanguageDropdownButtonInNavBar();
         homePage.clickToDynamicLanguageButton(AbstractPageData.LANGUAGE_VN);
         homePage.clickToDynamicMenu(AbstractPageData.MENU_EMPLOYEE);
-
-        employeePage = PageGeneratorManager.getEmployeePageHouzeAgent(driver);
-        employeePage.clickToCreateNewEmployeeButton();
-
-        employeePage.inputToDynamicTextbox(Form.USERNAME_FIELD, rdUsername);
-        employeePage.inputToDynamicTextbox(Form.PASSWORD_FIELD, Form.NewEmployee.PASSWORD);
-        employeePage.inputToDynamicTextbox(Form.FULLNAME_FIELD, Form.NewEmployee.FULLNAME);
-        employeePage.inputToDynamicTextbox(Form.IDCARD_FIELD, Form.NewEmployee.IDCARD);
-        employeePage.inputToDynamicTextbox(Form.PHONE_FIELD, rdPhone);
-        employeePage.inputToDynamicTextbox(Form.EMPLOYEE_CODE_FIELD, rdEmployeeCode);
-        employeePage.selectInDynamicDropdown(Form.ROLE_DROPDOWN, Form.ROLE_AGENT_VALUE);
-        employeePage.inputToDynamicTextbox(Form.START_DATE_FIELD, Form.NewEmployee.START_DATE);
-        employeePage.clickToSaveButton();
-        verifyTrue(employeePage.isCreateEmployeeFormIsClosed());
     }
 
     @BeforeMethod(groups = "smoke")
     public void beforeMethod() {
+        employeePage = PageGeneratorManager.getEmployeePageHouzeAgent(driver);
         employeePage.clickToActionDropdownButton(driver, GlobalConstants.FIRST_ROW);
         employeePage.clickToDynamicActionDropdownItem(driver, GlobalConstants.ACTION_CHANGE_PASSWORD);
     }
@@ -66,17 +53,41 @@ public class Test_Employee_03_Change_Password extends AbstractTest {
     }
 
     @Test
-    public void TC_01_Blank_Data() {
+    public void TC_01_Change_Password_Blank_Data(Method method) {
+        ExtentTestManager.startTest(method.getName(), "TC_01_Change_Password_Blank_Data");
+
+        ExtentTestManager.getTest().log(LogStatus.INFO,
+                "Employee - Change Password - Step 01: Click Save");
         employeePage.clickToSaveButton();
+
+        ExtentTestManager.getTest().log(LogStatus.INFO,
+                "Employee - Change Password - Step 02: Verify error message");
         verifyEquals(employeePage.getDynamicErrorText(Form.PASSWORD_FIELD),
                 Form.REQUIRED_ERROR_TEXT);
+
+        ExtentTestManager.getTest().log(LogStatus.INFO,
+                "Employee - Change Password - Step 03: Close form");
         employeePage.clickToCloseCreateEmployeeForm();
+
+        ExtentTestManager.endTest();
     }
 
     @Test(groups = "smoke")
-    public void TC_02_Valid_Data() {
+    public void TC_02_Change_Password_Valid_Data(Method method) {
+        ExtentTestManager.startTest(method.getName(), "TC_02_Change_Password_Valid_Data");
+
+        ExtentTestManager.getTest().log(LogStatus.INFO,
+                "Employee - Change Password - Step 01: Input valid info");
         employeePage.inputToDynamicTextbox(Form.PASSWORD_FIELD, Form.EditEmployee.PASSWORD);
+
+        ExtentTestManager.getTest().log(LogStatus.INFO,
+                "Employee - Change Password - Step 02: Click save");
         employeePage.clickToSaveButton();
+
+        ExtentTestManager.getTest().log(LogStatus.INFO,
+                "Employee - Change Password - Step 03: Verify form is closed");
         verifyTrue(employeePage.isCreateEmployeeFormIsClosed());
+
+        ExtentTestManager.endTest();
     }
 }

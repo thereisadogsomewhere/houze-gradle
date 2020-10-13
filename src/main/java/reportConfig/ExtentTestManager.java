@@ -14,12 +14,11 @@ public class ExtentTestManager {
     }
 
     public static synchronized void endTest() {
-        extent.endTest(extentTestMap.get((int) (long) (Thread.currentThread().getId())));
+        extent.endTest(extentTestMap.get((int) Thread.currentThread().getId()));
     }
 
-    public static synchronized ExtentTest startTest(String testName, String desc) {
+    public static synchronized void startTest(String testName, String desc) {
         ExtentTest test = extent.startTest(testName, desc);
-        extentTestMap.put((int) (long) (Thread.currentThread().getId()), test);
-        return test;
+        extentTestMap.put((int) Thread.currentThread().getId(), test);
     }
 }

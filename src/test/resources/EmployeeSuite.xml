@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Houze Agent">
+    <listeners>
+<!--        <listener class-name="commons.MethodListener"/>-->
+        <listener class-name="reportConfig.ExtentTestListener"/>
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter"/>-->
+<!--        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>-->
+    </listeners>
+
+    <test name="Run on Chrome">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="https://qa.agent-web.houze.io/login/"/>
+        <classes>
+            <class name="io.houze.agent.web.employee.Test_Employee_01_Create"/>
+            <class name="io.houze.agent.web.employee.Test_Employee_02_Edit"/>
+            <class name="io.houze.agent.web.employee.Test_Employee_03_Change_Password"/>
+        </classes>
+    </test>
+</suite>

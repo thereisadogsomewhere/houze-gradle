@@ -83,9 +83,9 @@ public class Test_Training_03_Test_Management_Create extends AbstractTest {
 
         ExtentTestManager.getTest().log(LogStatus.INFO,
                 "Training - Create Test Management - Step 01: Fill the create test management form");
-        trainingPage.inputToDynamicTextbox(testManagementName, Form.TEXTBOX_NAME_FIELD);
-        trainingPage.inputToDynamicTextbox(Form.START_DATE_VALUE, Form.TEXTBOX_START_DATE_FIELD);
-        trainingPage.inputToDynamicTextbox(Form.END_DATE_VALUE, Form.TEXTBOX_END_DATE_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, testManagementName, Form.TEXTBOX_NAME_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, Form.START_DATE_VALUE, Form.TEXTBOX_START_DATE_FIELD);
+        trainingPage.inputToDynamicTextbox(driver, Form.END_DATE_VALUE, Form.TEXTBOX_END_DATE_FIELD);
         trainingPage.selectInTestsDropdown(Form.TEST_NAME);
         trainingPage.clickToSaveButton();
 
