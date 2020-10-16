@@ -1,11 +1,11 @@
 package commons;
 
-import houzeagent.pageUIs.TrainingPageUI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -463,7 +463,7 @@ public abstract class AbstractPage {
         return sortedElementTextList.equals(elementTextList);
     }
 
-    public boolean isPageIsDisplayedByPageTitle(WebDriver driver, String pageTitle) {
+    protected boolean isPageIsDisplayedByPageTitle(WebDriver driver, String pageTitle) {
         return getPageTitle(driver).equals(pageTitle);
     }
 
@@ -538,24 +538,5 @@ public abstract class AbstractPage {
     private JavascriptExecutor js;
     private List<WebElement> elements;
     private Actions actions;
-
-    public void clickToActionDropdownButton(WebDriver driver, String rowNumber) {
-        waitElementClickable(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_BUTTON, rowNumber);
-        clickToElement(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_BUTTON, rowNumber);
-    }
-
-    public void clickToDynamicActionDropdownItem(WebDriver driver, String action) {
-        waitElementClickable(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_ITEM, action);
-        clickToElement(driver, AbtractPageUI.DYNAMIC_ACTION_DROPDOWN_ITEM, action);
-    }
-
-    public void clearDynamicTextbox(WebDriver driver, String... textbox) {
-        waitElementVisible(driver, AbtractPageUI.DYNAMIC_TEXTBOX_IN_FORM, textbox);
-        clearElement(driver, AbtractPageUI.DYNAMIC_TEXTBOX_IN_FORM, textbox);
-    }
-
-    public void inputToDynamicTextbox(WebDriver driver, String value, String fieldName) {
-        waitElementVisible(driver, AbtractPageUI.DYNAMIC_TEXTBOX_IN_FORM, fieldName);
-        sendkeyToElement(driver, AbtractPageUI.DYNAMIC_TEXTBOX_IN_FORM, value, fieldName);
-    }
+    public abstract boolean isAt();
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Houze Agent">
+    <listeners>
+        <listener class-name="reportConfig.ExtentTestListener"/>
+    </listeners>
+
+    <test name="Login Function">
+        <parameter name="appPackage" value="com.vn.housemap"/>
+        <parameter name="deviceName" value="emulator-5554"/>
+        <classes>
+<!--            <class name="io.houze.housemap.app.Test_Login_01_Housemap"/>-->
+        </classes>
+    </test>
+</suite>

@@ -2,6 +2,8 @@ package reportConfig;
 
 import com.relevantcodes.extentreports.LogStatus;
 import commons.AbstractTest;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -41,8 +43,15 @@ public class ExtentTestListener extends AbstractTest implements ITestListener {
 
         Object testClass = result.getInstance();
         WebDriver webDriver = ((AbstractTest) testClass).getDriver();
-        String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);
-        ExtentTestManager.getTest().log(LogStatus.FAIL, "Test Failed", ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+        AndroidDriver<AndroidElement> aDriver = ((AbstractTest) testClass).getADriver();
+        if (webDriver != null) {
+            String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);
+            ExtentTestManager.getTest().log(LogStatus.FAIL, "Test Failed", ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+        }
+        if (aDriver != null) {
+            String base64AppScreenshot = "data:image/png;base64," + (aDriver).getScreenshotAs(OutputType.BASE64);
+            ExtentTestManager.getTest().log(LogStatus.FAIL, "Test Failed", ExtentTestManager.getTest().addBase64ScreenShot(base64AppScreenshot));
+        }
     }
 
     @Override

@@ -12,4 +12,5 @@ public class GlobalConstants {
     public static final String ACTION_EDIT = "Cập nhật";
     public static final String ACTION_CHANGE_PASSWORD = "Đổi mật khẩu";
     public static final String FIRST_ROW = "1";
+    public static final String BASE_URL_HA_PRO_QA = "https://qa.agent-web.houze.io";
 }

@@ -31,7 +31,15 @@ public class DataHelper {
     }
 
     public String getPhone() {
-        return "0" + faker.phoneNumber().subscriberNumber(8);
+        String num = faker.phoneNumber().subscriberNumber(8);
+        if (num.startsWith("000")) {
+            return num.substring(2);
+        } else if (num.startsWith("00")) {
+            return num.substring(1);
+        } else if (num.startsWith("0")) {
+            return num;
+        }
+        return "0" + num;
     }
 
     public String getIDCard() {

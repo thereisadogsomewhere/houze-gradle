@@ -54,6 +54,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
     compile group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+
+    // https://mvnrepository.com/artifact/io.appium/java-client/
+    compile group: 'io.appium', name: 'java-client', version: '7.3.0'
 }
 
 compileJava.options.encoding = "UTF-8"
@@ -72,24 +75,37 @@ test {
     reports.html.setDestination(file("$projectDir/gradle-output"))
 }
 
-task smokeTests(type: Test) {
-    useTestNG() {
-        useDefaultListeners = false
-        suites 'src/test/resources/runTraining.xml'
-        includeGroups 'smoke'
-    }
-}
-
 task testManagements(type: Test) {
     useTestNG() {
         useDefaultListeners = false
-        suites 'src/test/resources/runTestManagementsSuite.xml'
+        suites 'src/test/resources/houzeAgent/runTestManagementsSuite.xml'
     }
 }
 
 task testEmployee(type: Test) {
     useTestNG() {
         useDefaultListeners = true
-        suites 'src/test/resources/runEmployeeSuite.xml'
+        suites 'src/test/resources/houzeAgent/runEmployeeSuite.xml'
+    }
+}
+
+task testTraining(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/houzeAgent/runTraining.xml'
+    }
+}
+
+task testLoginHousemap(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/housemap/suiteLogin.xml'
+    }
+}
+
+task testDebug(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/houzeAgent/test.xml'
     }
 }

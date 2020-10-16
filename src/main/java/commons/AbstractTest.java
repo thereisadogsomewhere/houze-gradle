@@ -1,14 +1,19 @@
 package commons;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractTest {
     private WebDriver driver;
+    private AndroidDriver<AndroidElement> appDriver;
     protected final Log log;
 
     protected AbstractTest() {
@@ -26,12 +32,16 @@ public abstract class AbstractTest {
         return driver;
     }
 
+    public AndroidDriver<AndroidElement> getADriver() {
+        return appDriver;
+    }
+
     protected WebDriver getBrowserDriver(String browserName, String appURL) {
         Browser browser = Browser.valueOf(browserName.toUpperCase());
-        if (browser == Browser.CHROME){
+        if (browser == Browser.CHROME) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-        } else if (browser == Browser.FIREFOX){
+        } else if (browser == Browser.FIREFOX) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         } else throw new RuntimeException("Please input your browser name!");
@@ -42,16 +52,25 @@ public abstract class AbstractTest {
         return driver;
     }
 
+    protected AndroidDriver<AndroidElement> getAppDriver(String appPackage, String deviceName) throws MalformedURLException {
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("deviceName", deviceName);
+        cap.setCapability("platform", "Android");
+        cap.setCapability("appPackage", appPackage);
+        cap.setCapability("appActivity", appPackage + ".MainActivity");
+
+        URL remoteAddress = new URL("http://127.0.0.1:4723/wd/hub/");
+        appDriver = new AndroidDriver<>(remoteAddress, cap);
+        appDriver.manage().timeouts().implicitlyWait(GlobalConstants.SHORT_TIMEOUT, TimeUnit.SECONDS);
+        return appDriver;
+    }
+
     protected boolean verifyTrue(boolean condition) {
         boolean pass = true;
-        try{
+        try {
             Assert.assertTrue(condition);
         } catch (Exception e) {
             pass = false;
-
-            // Add lỗi vào ReportNG
-            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
-            Reporter.getCurrentTestResult().setThrowable(e);
         }
         return pass;
     }

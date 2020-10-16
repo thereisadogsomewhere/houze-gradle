@@ -1,2 +1,9 @@
 /gradle-output/
 /report-output/
+/.gradle/
+/.idea/
+/out/
+/gradle/
+/Houze/
+/build/
+/test-output/
